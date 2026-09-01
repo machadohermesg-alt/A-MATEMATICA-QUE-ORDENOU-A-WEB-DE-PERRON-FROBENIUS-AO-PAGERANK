@@ -37,7 +37,7 @@ def PageRank (grafo):
 #Utilizaremos uma propriedade, Seja v o autovetor temos (G^t-I)v=0 como vale perron temos tb pelo nucleo imagem dimNu(G^t)=1, com isso escolhemos 
 #uma linha arbritaria onde todos os termos serão substituidos por 1, ficando v1+v2+...+=1 transformando o sistema com unica solução e ja o normalizando
     sistema=[]
-    #irei escolhe o primeiro elemento
+    #irei escolher o primeiro elemento
     for i in range(n):
         linha = []
         if i==0:
@@ -57,7 +57,7 @@ def PageRank (grafo):
     # print("=="*40)    
     #resolvendo o sistema
     matriz_nova = []
-    k=0 #em programação em geral começamos do 0
+    k=0 
     #O Algortimo se trata de triangulização em primeira instancia, realizando a troca de linhas caso o pivô seja 0
     while k<=n-1: #K determina qual coluna queremos zerar, pois o indice começa de 0, logo 0,1,2..n-1 são n interações(n é quantidade de linhas)
         # print("valor de k ",k)

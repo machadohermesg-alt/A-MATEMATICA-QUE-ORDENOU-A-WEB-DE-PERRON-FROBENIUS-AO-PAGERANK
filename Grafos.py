@@ -1,6 +1,4 @@
-import pandas as pandas
-import numpy as numpy
-import random
+# Grafos teste
 
 
 grafos_web1={ #dicionário chave: valor (chaves) conchetes criamos a lista

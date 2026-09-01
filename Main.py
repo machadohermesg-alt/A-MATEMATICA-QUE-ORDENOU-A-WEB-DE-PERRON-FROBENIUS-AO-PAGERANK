@@ -19,25 +19,7 @@ from PageRank_PowerInteration import PowerInteration
 
 from Testar_DataSets import ler_dados
 
-# print("="*80)
-# print("INÍCIO do Algoritimo DFS, BUSCA EM PROFUNDIDADE RECURSIVO")
-# DFS_R(grafos_web3,'A',[]) #1 Começa de A, Vai até B como B se conecta Com C vai até C, dps em C analisa se A ja foi visitado oq é afirmativo, indo para o proximo que é D QUE SE CONECTA COM E E GG
-# print("=-"*40)
-# print("FIM do Algoritimo DFS, BUSCA EM PROFUNDIDADE")
 
-# print("="*80)
-# print("INÍCIO do Algoritimo DFS, BUSCA EM PROFUNDIDADE INTERATIVO")
-# DFS_I(grafos_web3,'A') #1 Começa de A, Vai até B como B se conecta Com C vai até C, dps em C analisa se A ja foi visitado oq é afirmativo, indo para o proximo que é D QUE SE CONECTA COM E E GG
-# print("=-"*40)
-# print("FIM do Algoritimo DFS, BUSCA EM PROFUNDIDADE")
-
-# print("="*80)
-# print("INÍCIO do Algoritimo BFS, BUSCA EM LARGURA")
-# BFS(grafos_web3,'A') 
-# print("=-"*40)
-# print("FIM do Algoritimo BFS, BUSCA EM LARGURA")
-
-# #Dijsktra(grafo_pesado,'A','E')
 
 # print("="*80)
 # print("INICIO MATRIZ DE ADJACENCIA")
@@ -57,13 +39,15 @@ from Testar_DataSets import ler_dados
 # for linha in matriz_googlev:
 #     print(linha)
 
+
+#biblioteca pagerank
 def pageRankBli(grafo):
     G = nx.DiGraph()
     
-    # --- A CORREÇÃO ENTRA AQUI ---
-    # Garante que todos os nós existam no grafo, mesmo os sem links
+  
+   
     G.add_nodes_from(grafo.keys())
-    # -----------------------------
+   
 
     for origem in grafo:
         for destino in grafo[origem]:
@@ -75,26 +59,8 @@ def pageRankBli(grafo):
     resultado = nx.pagerank(G, alpha=0.85, weight='peso')
     print(resultado)
 
-#bibliosistema
-import numpy as np
 
 
-def resolver_sistema_numpy(grafo_b): #errado parece
-    matriz = matriz_google(grafo_b)
-    n = len(matriz)
-    
-    # G^T - I
-    G = np.array(matriz)
-    A = G.T - np.identity(n)
-    
-    # substituindo uma linha pela equação de normalização
-    A[-1, :] = 1
-    b = np.zeros(n)
-    b[-1] = 1
-    
-    v = np.linalg.solve(A, b)
-    print(v)
-    return v
 
  
 #utilizando todos os grafos criados no projeto   
@@ -139,19 +105,5 @@ fim = time.perf_counter()
 print()
 tempo_total = fim - inicio
 print(f"O algoritmo rodou em {tempo_total:.6f} segundos. O grafo possui {total_vertices} vertices e {total_aresta} arestas")
-PageRank(grafos_web11)
 
-# # ---- Preparação (FORA do timer, igual pros dois métodos) ----
-# grafo = ler_dados('teste.txt')
 
-# # ---- Teste 1: Power Iteration (função completa, do jeito que é chamada de verdade) ----
-# inicio = time.perf_counter()
-# resultado_pi = PowerInteration(grafo, 0.000001, 1000)
-# fim = time.perf_counter()
-# print(f"Power Iteration (completo): {fim-inicio:.4f}s")
-
-# # ---- Teste 2: NumPy solve (função completa, do jeito que é chamada de verdade) ----
-# inicio = time.perf_counter()
-# resultado_np = resolver_sistema_numpy(grafo)
-# fim = time.perf_counter()
-# print(f"NumPy solve (completo): {fim-inicio:.4f}s")

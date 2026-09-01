@@ -15,7 +15,7 @@ def matriz_google (grafo):
   
     for i in range(n):
         for j in range(n):
-            matriz[i][j]= matriz[i][j]*coeficiente_google #matriz de adjacencia * coeficiente_google
+            matriz[i][j]= matriz[i][j]*coeficiente_google #matriz estocastica * coeficiente_google
 
     for i in range(n):
         for j in range(n):
